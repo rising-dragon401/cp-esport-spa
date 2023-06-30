@@ -1,6 +1,11 @@
 import { styled } from "styled-components";
 
-export const DivHeaderContainer = styled.div``;
+export const DivHeaderContainer = styled.div`
+  /* position: sticky;
+  top: 0;
+  z-index: 1;
+  background: gray; */
+`;
 
 export const PLogo = styled.p`
   flex-grow: 1;
@@ -10,5 +15,13 @@ export const PLogo = styled.p`
 
   a {
     color: white;
+  }
+`;
+
+export const DivMobileHeader = styled.div`
+  ${PLogo} {
+    a {
+      color: #538af9;
+    }
   }
 `;

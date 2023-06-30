@@ -7,8 +7,11 @@ export const DivFormGroup = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-
   margin-bottom: 2rem;
+
+  @media screen and (max-width: 640px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export const H3SectionTitle = styled.h3`

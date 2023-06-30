@@ -1,3 +1,5 @@
+"use-client";
+
 import ApplicationForm from "@/components/ApplicationForm";
 import ApplicationLayout from "@/layouts";
 import Head from "next/head";
