@@ -1,0 +1,21 @@
+export type ApplicationValues = {
+  firstName: string;
+  lastName: string;
+  emailAddress: string;
+  dateOfBirth: string;
+  phoneNumber: string;
+  mailingAddress: string;
+  anticipatedStartingSemester: string;
+  bachelorOfArt: string;
+  bachelorOfScience: string;
+  associateOfArt: string;
+  certificateProgram: string;
+  masterProgram: string;
+  graduateCertificate: string;
+  levelOfEducation: string;
+  priorCollegeAttendance: string;
+  financialAid: string;
+  veteran: string;
+  heardAboutUs: string;
+  comments: string;
+};

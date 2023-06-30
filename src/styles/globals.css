@@ -1,0 +1,27 @@
+html,
+body,
+main {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  background: #ddd;
+}
+
+main {
+  background: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #538af6;
+}
