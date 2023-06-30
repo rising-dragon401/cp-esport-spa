@@ -85,7 +85,7 @@ function Header() {
           }}
           sx={{
             display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": { boxSizing: "border-box", width: 240 },
+            "& .MuiDrawer-paper": { boxSizing: "border-box", width: "80%" },
           }}
         >
           {drawer}
