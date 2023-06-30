@@ -44,11 +44,7 @@ function ApplicationForm() {
 
     const response = await fetch("/api/sendEmail", {
       method: "POST",
-      body: JSON.stringify({
-        senderMail: email,
-        name,
-        content: "Test message content",
-      }),
+      body: JSON.stringify({}),
       headers: {
         "Content-Type": "application/json",
       },
