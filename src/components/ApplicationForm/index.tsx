@@ -38,9 +38,31 @@ function ApplicationForm() {
     setApplicationValues((prev) => ({ ...prev, ...newValues }));
   };
 
-  const onSubmit = () => {
-    Router.push("/requirement");
-    console.log(applicationValues);
+  const onSubmit = async () => {
+    const email = "dwarner@osita.biz";
+    const name = "TestName";
+
+    const response = await fetch("/api/sendEmail", {
+      method: "POST",
+      body: JSON.stringify({
+        senderMail: email,
+        name,
+        content: "Test message content",
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      console.log("Message sent!");
+    } else {
+      console.log("Error sending message");
+    }
+    // Router.push("/requirement");
+    // console.log(applicationValues);
   };
   return (
     <DivApplicationForm>
