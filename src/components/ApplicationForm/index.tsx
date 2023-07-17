@@ -39,12 +39,11 @@ function ApplicationForm() {
   };
 
   const onSubmit = async () => {
-    const email = "dwarner@osita.biz";
-    const name = "TestName";
-
     const response = await fetch("/api/sendEmail", {
       method: "POST",
-      body: JSON.stringify({}),
+      body: JSON.stringify({
+        ...applicationValues
+      }),
       headers: {
         "Content-Type": "application/json",
       },
