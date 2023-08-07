@@ -8,9 +8,10 @@ type Props = {
   label: string;
   helperText?: string;
   onChange: (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => void;
+  error?: string;
 };
 
-function TextInput({ label, helperText, value, name, onChange }: Props) {
+function TextInput({ label, helperText, value, name, onChange, error }: Props) {
   return (
     <DivTextInputContainer>
       <FormLabel>{label}:</FormLabel>
@@ -19,7 +20,8 @@ function TextInput({ label, helperText, value, name, onChange }: Props) {
         name={name}
         onChange={onChange}
         variant="outlined"
-        helperText={helperText}
+        helperText={error || helperText}
+        error={Boolean(error)}
       />
     </DivTextInputContainer>
   );

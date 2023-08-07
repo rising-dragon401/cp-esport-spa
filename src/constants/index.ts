@@ -140,9 +140,9 @@ export const defaultApplicationValues: ApplicationValues = {
   firstName: "",
   lastName: "",
   emailAddress: "",
-  dateOfBirth: "",
+  age: "",
   phoneNumber: "",
-  mailingAddress: "",
+  homeState: "",
   anticipatedStartingSemester: "",
   bachelorOfArt: "",
   bachelorOfScience: "",
@@ -156,6 +156,28 @@ export const defaultApplicationValues: ApplicationValues = {
   veteran: "",
   heardAboutUs: "",
   comments: "",
+};
+
+export const errorLabels = {
+  firstName: "First Name",
+  lastName: "Last Name",
+  emailAddress: "Email Address",
+  age: "Age",
+  phoneNumber: "Phone Number",
+  homeState: "Home State",
+  anticipatedStartingSemester: "Anticipated Starting Semester",
+  bachelorOfArt: "Bachelor of Art",
+  bachelorOfScience: "Bachelor of Science",
+  associateOfArt: "Associate of Art",
+  certificateProgram: "Certificate Program",
+  masterProgram: "Master Program",
+  graduateCertificate: "Graduate Certificate",
+  levelOfEducation: "Level of Education",
+  // priorCollegeAttendance: "Prior College Attendance",
+  financialAid: "Financial Aid",
+  veteran: "Veteran",
+  heardAboutUs: "Heard About Us",
+  comments: "Comments",
 };
 
 export const anticipatedStartingSemesterOptions: Option[] = [

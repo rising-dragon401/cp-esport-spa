@@ -1,4 +1,10 @@
-import { FormLabel, MenuItem, Select, SelectChangeEvent } from "@mui/material";
+import {
+  FormHelperText,
+  FormLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+} from "@mui/material";
 import React from "react";
 import { DivTextInputContainer } from "./styles";
 import { Option } from "@/providers/types";
@@ -9,9 +15,10 @@ type Props = {
   name?: string;
   options: Option[];
   onChange: (event: SelectChangeEvent) => void;
+  error?: string;
 };
 
-function SelectInput({ label, value, name, options, onChange }: Props) {
+function SelectInput({ label, value, name, options, onChange, error }: Props) {
   return (
     <DivTextInputContainer>
       <FormLabel>{label}:</FormLabel>
@@ -20,6 +27,7 @@ function SelectInput({ label, value, name, options, onChange }: Props) {
         value={value}
         name={name}
         onChange={onChange}
+        error={Boolean(error)}
       >
         {options.map((option, idx) => (
           <MenuItem key={idx} value={option.value}>
@@ -27,6 +35,7 @@ function SelectInput({ label, value, name, options, onChange }: Props) {
           </MenuItem>
         ))}
       </Select>
+      <FormHelperText error={Boolean(error)}>{error}</FormHelperText>
     </DivTextInputContainer>
   );
 }

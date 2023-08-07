@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, useState } from "react";
 import {
   DivApplicationForm,
   DivButtonWrapper,
@@ -17,16 +17,22 @@ import {
   bachelorOfArtOptions,
   bachelorOfScienceOptions,
   certificateProgramOptions,
+  errorLabels,
   financialAidOptions,
   graduateCertificateOptions,
   levelOfEducationOptions,
   masterProgramOptions,
   veteranOptions,
 } from "@/constants";
+import { validEmail, validPhoneNumber } from "@/utils/helpers";
 
 function ApplicationForm() {
   const { applicationValues, setApplicationValues } =
     useApplicationContext() as ApplicationContextType;
+
+  const [applicationErrors, setApplicationErrors] = useState<
+    Record<string, string>
+  >({});
 
   const handleInputChange = (
     e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement> | SelectChangeEvent
@@ -35,14 +41,45 @@ function ApplicationForm() {
     let newValues: Record<string, string> = Object.assign(applicationValues);
     newValues[name] = value;
 
+    validateApplicationValues(name, value);
     setApplicationValues((prev) => ({ ...prev, ...newValues }));
   };
 
+  const validateApplicationValues = (name: string, value: string) => {
+    let newErrors = Object.assign(applicationErrors);
+    const labels: Record<string, string> = errorLabels;
+    newErrors[name] = "";
+    if (!String(value).trim() && labels[name]) {
+      newErrors[name] = `This field is required.`;
+    } else if (name === "emailAddress") {
+      newErrors[name] = validEmail(value);
+    } else if (name === "phoneNumber") {
+      newErrors[name] = validPhoneNumber(value);
+    }
+    setApplicationErrors((prev) => ({ ...prev, ...newErrors }));
+  };
+
+  const hasApplicationError = () => {
+    let isError = false;
+    const labels: Record<string, string> = errorLabels;
+    Object.entries(applicationErrors).forEach(([key, value]) => {
+      if (value && labels[key]) isError = true;
+    });
+    return isError;
+  };
+
   const onSubmit = async () => {
+    Object.entries(applicationValues).forEach(([key, value]) => {
+      validateApplicationValues(key, value as string);
+    });
+
+    // console.log(applicationErrors);
+    if (hasApplicationError()) return;
+
     const response = await fetch("/api/sendEmail", {
       method: "POST",
       body: JSON.stringify({
-        ...applicationValues
+        ...applicationValues,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -57,7 +94,6 @@ function ApplicationForm() {
       console.log("Error sending message");
     }
     // Router.push("/requirement");
-    // console.log(applicationValues);
   };
   return (
     <DivApplicationForm>
@@ -68,36 +104,42 @@ function ApplicationForm() {
           name="firstName"
           value={applicationValues.firstName}
           onChange={handleInputChange}
+          error={applicationErrors.firstName}
         />
         <TextInput
           label="Last Name"
           name="lastName"
           value={applicationValues.lastName}
           onChange={handleInputChange}
+          error={applicationErrors.lastName}
         />
         <TextInput
           label="Email Address"
           name="emailAddress"
           value={applicationValues.emailAddress}
           onChange={handleInputChange}
+          error={applicationErrors.emailAddress}
         />
         <TextInput
-          label="Date of Birth"
-          name="dateOfBirth"
-          value={applicationValues.dateOfBirth}
+          label="Age"
+          name="age"
+          value={applicationValues.age}
           onChange={handleInputChange}
+          error={applicationErrors.age}
         />
         <TextInput
           label="Phone Number"
           name="phoneNumber"
           value={applicationValues.phoneNumber}
           onChange={handleInputChange}
+          error={applicationErrors.phoneNumber}
         />
         <TextInput
-          label="Mailing Address"
-          name="mailingAddress"
-          value={applicationValues.mailingAddress}
+          label="Home State"
+          name="homeState"
+          value={applicationValues.homeState}
           onChange={handleInputChange}
+          error={applicationErrors.homeState}
         />
       </DivFormGroup>
 
@@ -109,6 +151,7 @@ function ApplicationForm() {
           name="anticipatedStartingSemester"
           value={applicationValues.anticipatedStartingSemester}
           options={anticipatedStartingSemesterOptions}
+          error={applicationErrors.anticipatedStartingSemester}
         />
       </DivFormGroup>
 
@@ -120,6 +163,7 @@ function ApplicationForm() {
           name="bachelorOfArt"
           value={applicationValues.bachelorOfArt}
           options={bachelorOfArtOptions}
+          error={applicationErrors.bachelorOfArt}
         />
         <SelectInput
           label="Bachelor of Science"
@@ -127,6 +171,7 @@ function ApplicationForm() {
           name="bachelorOfScience"
           value={applicationValues.bachelorOfScience}
           options={bachelorOfScienceOptions}
+          error={applicationErrors.bachelorOfScience}
         />
         <SelectInput
           label="Associate of Art"
@@ -134,6 +179,7 @@ function ApplicationForm() {
           name="associateOfArt"
           value={applicationValues.associateOfArt}
           options={associateOfArtOptions}
+          error={applicationErrors.associateOfArt}
         />
         <SelectInput
           label="Certificate Programs"
@@ -141,6 +187,7 @@ function ApplicationForm() {
           name="certificateProgram"
           value={applicationValues.certificateProgram}
           options={certificateProgramOptions}
+          error={applicationErrors.certificateProgram}
         />
         <SelectInput
           label="Master's Programs"
@@ -148,6 +195,7 @@ function ApplicationForm() {
           name="masterProgram"
           value={applicationValues.masterProgram}
           options={masterProgramOptions}
+          error={applicationErrors.masterProgram}
         />
         <SelectInput
           label="Graduate Certificates"
@@ -155,6 +203,7 @@ function ApplicationForm() {
           name="graduateCertificate"
           value={applicationValues.graduateCertificate}
           options={graduateCertificateOptions}
+          error={applicationErrors.graduateCertificate}
         />
         <SelectInput
           label="Level of Education"
@@ -162,6 +211,7 @@ function ApplicationForm() {
           name="levelOfEducation"
           value={applicationValues.levelOfEducation}
           options={levelOfEducationOptions}
+          error={applicationErrors.levelOfEducation}
         />
         <TextInput
           label="Prior College Attendance (If applicable)"
@@ -169,6 +219,7 @@ function ApplicationForm() {
           value={applicationValues.priorCollegeAttendance}
           onChange={handleInputChange}
           helperText="If you enrolled in any college prior, please indicate the dates attended"
+          error={applicationErrors.priorCollegeAttendance}
         />
       </DivFormGroup>
 
@@ -180,6 +231,7 @@ function ApplicationForm() {
           name="financialAid"
           value={applicationValues.financialAid}
           options={financialAidOptions}
+          error={applicationErrors.financialAid}
         />
         <SelectInput
           label="Are you a veteran?"
@@ -187,6 +239,7 @@ function ApplicationForm() {
           name="veteran"
           value={applicationValues.veteran}
           options={veteranOptions}
+          error={applicationErrors.veteran}
         />
       </DivFormGroup>
 
@@ -197,12 +250,14 @@ function ApplicationForm() {
           name="heardAboutUs"
           value={applicationValues.heardAboutUs}
           onChange={handleInputChange}
+          error={applicationErrors.heardAboutUs}
         />
         <TextInput
           label="Comments/Questions"
           name="comments"
           value={applicationValues.comments}
           onChange={handleInputChange}
+          error={applicationErrors.comments}
         />
       </DivFormGroup>
 

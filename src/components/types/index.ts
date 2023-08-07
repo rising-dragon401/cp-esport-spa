@@ -2,9 +2,9 @@ export type ApplicationValues = {
   firstName: string;
   lastName: string;
   emailAddress: string;
-  dateOfBirth: string;
+  age: string;
   phoneNumber: string;
-  mailingAddress: string;
+  homeState: string;
   anticipatedStartingSemester: string;
   bachelorOfArt: string;
   bachelorOfScience: string;
