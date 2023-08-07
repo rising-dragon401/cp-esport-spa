@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent } from "react";
 import {
   DivApplicationForm,
   DivButtonWrapper,
@@ -17,22 +17,21 @@ import {
   bachelorOfArtOptions,
   bachelorOfScienceOptions,
   certificateProgramOptions,
-  errorLabels,
   financialAidOptions,
   graduateCertificateOptions,
   levelOfEducationOptions,
   masterProgramOptions,
   veteranOptions,
 } from "@/constants";
-import { validEmail, validPhoneNumber } from "@/utils/helpers";
 
 function ApplicationForm() {
-  const { applicationValues, setApplicationValues } =
-    useApplicationContext() as ApplicationContextType;
-
-  const [applicationErrors, setApplicationErrors] = useState<
-    Record<string, string>
-  >({});
+  const {
+    applicationValues,
+    setApplicationValues,
+    validateApplicationValues,
+    hasApplicationError,
+    applicationErrors,
+  } = useApplicationContext() as ApplicationContextType;
 
   const handleInputChange = (
     e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement> | SelectChangeEvent
@@ -43,29 +42,6 @@ function ApplicationForm() {
 
     validateApplicationValues(name, value);
     setApplicationValues((prev) => ({ ...prev, ...newValues }));
-  };
-
-  const validateApplicationValues = (name: string, value: string) => {
-    let newErrors = Object.assign(applicationErrors);
-    const labels: Record<string, string> = errorLabels;
-    newErrors[name] = "";
-    if (!String(value).trim() && labels[name]) {
-      newErrors[name] = `This field is required.`;
-    } else if (name === "emailAddress") {
-      newErrors[name] = validEmail(value);
-    } else if (name === "phoneNumber") {
-      newErrors[name] = validPhoneNumber(value);
-    }
-    setApplicationErrors((prev) => ({ ...prev, ...newErrors }));
-  };
-
-  const hasApplicationError = () => {
-    let isError = false;
-    const labels: Record<string, string> = errorLabels;
-    Object.entries(applicationErrors).forEach(([key, value]) => {
-      if (value && labels[key]) isError = true;
-    });
-    return isError;
   };
 
   const onSubmit = async () => {
