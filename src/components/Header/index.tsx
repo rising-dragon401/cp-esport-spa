@@ -17,6 +17,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
 import { DivHeaderContainer, DivMobileHeader, PLogo } from "./styles";
 import { navItems } from "@/constants";
+import Image from "next/image";
 
 function Header() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -29,7 +30,9 @@ function Header() {
     <DivMobileHeader>
       <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
         <PLogo>
-          <Link href="/">eSports</Link>
+          <Link href="/">
+            <img src="/images/fisher_esports_logo.png" alt="esports_logo" />
+          </Link>
         </PLogo>
 
         <Divider />
@@ -37,7 +40,15 @@ function Header() {
           {navItems.map((item) => (
             <ListItem key={item.label} disablePadding>
               <Link key={item.label} href={`/${item.slug}`}>
-                <Button sx={{ color: "#538af9" }}>{item.label}</Button>
+                <Button
+                  sx={{
+                    color: "#0f1e3b",
+                    fontFamily: "'Tektur', cursive;",
+                    fontWeight: 600,
+                  }}
+                >
+                  {item.label}
+                </Button>
               </Link>
             </ListItem>
           ))}
@@ -51,7 +62,14 @@ function Header() {
       <AppBar component="nav">
         <Toolbar>
           <PLogo>
-            <Link href="/">eSports</Link>
+            <Link href="/">
+              <Image
+                src="/images/fisher_esports_logo.png"
+                alt="esports_logo"
+                width={300}
+                height={70}
+              />
+            </Link>
           </PLogo>
 
           <Box sx={{ mr: 2, display: { sm: "none" } }}>
@@ -68,9 +86,27 @@ function Header() {
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
               <Link key={item.label} href={`/${item.slug}`}>
-                <Button sx={{ color: "#fff" }}>{item.label}</Button>
+                <Button
+                  sx={{
+                    color: "#fff",
+                    fontFamily: "'Tektur', cursive;",
+                    fontWeight: 600,
+                    fontSize: "1.2rem",
+                    marginRight: "1rem",
+                  }}
+                >
+                  {item.label}
+                </Button>
               </Link>
             ))}
+
+            <Image
+              className="college-logo"
+              src="/images/fisher_college_logo.png"
+              alt="esports_logo"
+              width={120}
+              height={120}
+            />
           </Box>
         </Toolbar>
       </AppBar>

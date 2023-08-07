@@ -1,9 +1,11 @@
 import React from "react";
-import { DivAboutUsContainer, PDescription } from "./styles";
+import { DivAboutUsContainer, H1Title, PDescription } from "./styles";
 
 function AboutUs() {
   return (
     <DivAboutUsContainer>
+      <H1Title>About Us</H1Title>
+
       <PDescription>
         Just like you, we too were once gamers. Each heartbeat mirrored the
         rhythm of every button press, every strategic move. We thrived in the

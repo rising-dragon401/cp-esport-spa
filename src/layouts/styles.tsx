@@ -7,6 +7,7 @@ export const DivMainContainer = styled.div`
 
   .MuiAppBar-root {
     position: sticky;
-    background-color: #538af6;
+    background-color: #000;
+    padding-top: 1rem;
   }
 `;

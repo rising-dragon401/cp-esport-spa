@@ -1,9 +1,11 @@
 import React from "react";
-import { DivOurOfferContainer, PDescription } from "./styles";
+import { DivOurOfferContainer, H1Title, PDescription } from "./styles";
 
 function OurOffer() {
   return (
     <DivOurOfferContainer>
+      <H1Title>Our Offer</H1Title>
+
       <PDescription>
         Is there a catch? Absolutely not. We aim to pique your interest in an
         online degree with a scholarship for any of our college-accredited

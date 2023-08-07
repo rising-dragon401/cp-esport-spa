@@ -4,6 +4,7 @@ import {
   DivButtonWrapper,
   DivFormGroup,
   H3SectionTitle,
+  PDescription,
 } from "./styles";
 import { Button, SelectChangeEvent } from "@mui/material";
 import SelectInput from "../common/SelectInput";
@@ -239,11 +240,11 @@ function ApplicationForm() {
 
       <H3SectionTitle>Submission</H3SectionTitle>
 
-      <p>
+      <PDescription>
         By submitting this form, I agree to the terms and conditions and confirm
         that all the information provided is correct to the best of my
         knowledge.
-      </p>
+      </PDescription>
 
       <DivButtonWrapper>
         <Button variant="contained" size="large" onClick={onSubmit}>
