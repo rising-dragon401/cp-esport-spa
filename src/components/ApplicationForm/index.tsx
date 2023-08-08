@@ -24,6 +24,7 @@ import {
   masterProgramOptions,
   veteranOptions,
 } from "@/constants";
+import Banner from "../Banner";
 
 function ApplicationForm() {
   const {
@@ -74,7 +75,9 @@ function ApplicationForm() {
   };
   return (
     <DivApplicationForm>
+      <Banner />
       <H3SectionTitle>Personal Information</H3SectionTitle>
+
       <DivFormGroup>
         <TextInput
           label="First Name"

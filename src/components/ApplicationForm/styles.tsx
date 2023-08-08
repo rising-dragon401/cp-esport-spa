@@ -2,6 +2,8 @@ import { styled } from "styled-components";
 
 export const DivApplicationForm = styled.div`
   padding: 2rem;
+  padding-top: 0;
+  display: flow-root;
 `;
 export const DivFormGroup = styled.div`
   display: grid;
