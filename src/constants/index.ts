@@ -128,7 +128,7 @@ export const bannerDescriptions = [
   `Now that we are in a position to do so, we can provide gamers like you the chance to channel their abilities and
   enthusiasm into entering the world of Esports.
   `,
-  `        Please fill out this intake form. We will reachout to you as soon as we can to discuss this opportunity with you.`,
+  `Please fill out this intake form. We will reach out to you as soon as we can to discuss this opportunity with you.`,
 ];
 
 export const navItems = [
