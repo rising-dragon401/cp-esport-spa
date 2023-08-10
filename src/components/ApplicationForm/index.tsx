@@ -135,7 +135,9 @@ function ApplicationForm() {
         />
       </DivFormGroup>
 
-      <H3SectionTitle>Intended Program</H3SectionTitle>
+      <H3SectionTitle>
+        Intended Program (Please choose at least one)
+      </H3SectionTitle>
       <DivFormGroup>
         <SelectInput
           label="Bachelor of Arts"
@@ -185,6 +187,10 @@ function ApplicationForm() {
           options={graduateCertificateOptions}
           error={applicationErrors.graduateCertificate}
         />
+      </DivFormGroup>
+
+      <H3SectionTitle>Education Information</H3SectionTitle>
+      <DivFormGroup>
         <SelectInput
           label="Level of Education"
           onChange={handleInputChange}
@@ -193,6 +199,7 @@ function ApplicationForm() {
           options={levelOfEducationOptions}
           error={applicationErrors.levelOfEducation}
         />
+
         <TextInput
           label="Prior College Attendance (If applicable)"
           name="priorCollegeAttendance"

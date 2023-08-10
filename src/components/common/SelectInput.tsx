@@ -21,7 +21,7 @@ type Props = {
 function SelectInput({ label, value, name, options, onChange, error }: Props) {
   return (
     <DivTextInputContainer>
-      <FormLabel>{label}:</FormLabel>
+      {label && <FormLabel>{label}:</FormLabel>}
       <Select
         labelId="demo-simple-select-label"
         value={value}
