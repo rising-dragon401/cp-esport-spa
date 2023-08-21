@@ -7,19 +7,19 @@ function OurOffer() {
       <H1Title>Our Offer</H1Title>
 
       <PDescription>
-        Is there a catch? Absolutely not. We aim to pique your interest in an
-        online degree with a scholarship for any of our college-accredited
-        degrees. Our goal is not just to provide financial aid, but to guide you
-        on a journey of exploration, growth, and achievement.
+        Is there a catch? Absolutely not. With a scholarship for any of our
+        college-accredited degrees, we want to encourage your interest in an
+        online degree. Not only do we want to help you financially, but we also
+        want to lead you on a path of discovery, development, and success.
       </PDescription>
       <PDescription>
-        We are Gamers, just like you, extending a chance we once wished for.
-        This is more than a scholarship; it's your opportunity to turn your
-        passion into a career. With us, you can shape your future without
-        letting go of your present.
+        We provide an opportunity that we once yearned for, because we are
+        gamers just like you. This is an opportunity for you to transform your
+        passion into a profession, not just a scholarship. With us, you can
+        shape your future without letting go of the present.
       </PDescription>
       <PDescription>
-        Unleash your potential with us. Your game, your rules. Apply now for the
+        Unleash your potential with us. Your rules, your game. Apply now for the
         eSports Scholarship and embark on a journey towards a future built on
         your passion.
       </PDescription>

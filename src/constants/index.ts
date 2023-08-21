@@ -3,7 +3,7 @@ import { Option } from "@/providers/types";
 
 export const privacyPolicies = [
   {
-    subTitle: "Last updated: [Date]",
+    subTitle: "Last updated: 6/01/23",
     descriptions: [
       `This Privacy Policy outlines how [Your Website Name] ("we," "us," or "our") collects, uses, and protects the personal information of visitors to our website. We are committed to ensuring the privacy and security of your personal information and complying with all applicable data protection laws and regulations.`,
       `By accessing or using our website, you agree to the terms and practices described in this Privacy Policy. If you do not agree with any aspect of this policy, please refrain from using our website.`,

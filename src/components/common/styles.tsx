@@ -15,4 +15,10 @@ export const DivTextInputContainer = styled.div`
   .MuiFormLabel-root {
     color: #ddd;
   }
+  .MuiFormHelperText-root {
+    color: #ddd;
+  }
+  .MuiFormHelperText-root.Mui-error {
+    color: #d32f2f;
+  }
 `;
