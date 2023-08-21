@@ -11,17 +11,17 @@ function AboutUs() {
         choice, and every move was in tune with the game. We flourished in the
         exciting realm of Esports, discovering virtual worlds and showcasing our
         prowess in constantly changing arenas. But as time went on, we became
-        patrons instead than participants.
+        patrons rather than participants.
       </PDescription>
       <PDescription>
-        We hoped for a opportunity that would combine our love of gaming and
+        We hoped for an opportunity to combine our love of gaming and
         professional development throughout our gaming adventure. But as Esports
         was still in its infancy, no such path had yet been created.
       </PDescription>
       <PDescription>
-        Now that we are in a position to do so, we can provide gamers like you
-        the chance to channel their abilities and enthusiasm into entering the
-        world of Esports.
+        Now that we are in a position to do so, we can allow gamers like you to
+        channel their abilities and enthusiasm into entering the world of
+        Esports.
       </PDescription>
     </DivAboutUsContainer>
   );
