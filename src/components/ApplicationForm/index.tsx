@@ -9,7 +9,7 @@ import {
 import { Button, SelectChangeEvent } from "@mui/material";
 import SelectInput from "../common/SelectInput";
 import TextInput from "../common/TextInput";
-import Router from "next/router";
+import { useRouter } from "next/router";
 import { useApplicationContext } from "@/providers/ApplicationProvider";
 import { ApplicationContextType } from "@/providers/types";
 import {
@@ -46,6 +46,8 @@ function ApplicationForm() {
     setApplicationValues((prev) => ({ ...prev, ...newValues }));
   };
 
+  const router = useRouter();
+
   const onSubmit = async () => {
     Object.entries(applicationValues).forEach(([key, value]) => {
       validateApplicationValues(key, value as string);
@@ -64,14 +66,15 @@ function ApplicationForm() {
       },
     });
 
-    const data = await response.json();
+    const data = response;
 
-    if (data.success) {
+    if (data.status === 200) {
       console.log("Message sent!");
+      router.push('/thanks-submit');
     } else {
       console.log("Error sending message");
+      alert("Error sending message")
     }
-    // Router.push("/requirement");
   };
   return (
     <DivApplicationForm>
