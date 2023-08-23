@@ -5,7 +5,7 @@ function ThanksSubmit() {
   return (
     <DivThanksSubmitContainer>
       <H1Title>Thank You</H1Title>
-      <H2Title>Your info has bee submitted we will reach out to you soon.</H2Title>
+      <H2Title>Your info has been submitted we will reach out to you soon.</H2Title>
     </DivThanksSubmitContainer>
   );
 }
